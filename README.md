@@ -1,11 +1,11 @@
 
 ``` bash
+PORT=3333
 DB_HOST="localhost"
 DB_PORT="5432"
 DB_DATABASE="tasklist"
 DB_USER="docker"
 DB_PASSWORD="docker"
-
 ```
 
 
