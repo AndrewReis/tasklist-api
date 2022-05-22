@@ -1,4 +1,7 @@
-const { v4: uuidV4 } = require('uuid');
+// dependencies
+const { hash } = require('bcryptjs');
+
+const AppError = require('../../helpers/app-error');
 
 class SignUp {
   constructor(userRepository) {
@@ -9,11 +12,12 @@ class SignUp {
     const checkUserExist = await this.userRepository.getByEmail(email);
 
     if (!checkUserExist) {
+      const hashPassword = await hash(password, 8);
+
       const user = {
-        id: uuidV4(),
         name,
         email,
-        password,
+        password: hashPassword,
         created_at: new Date(),
         updated_at: new Date()
       }
@@ -22,7 +26,7 @@ class SignUp {
       return user;
     }
 
-    throw new Error('Email already registered');
+    throw new AppError('Email already registered', 409);
   }
 } 
 
