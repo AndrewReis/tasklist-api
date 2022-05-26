@@ -9,10 +9,10 @@ DB_PASSWORD="docker"
 ```
 
 
-# CLI KnexJs
-# npx knex migrate:make migration_name
-# npx knex migrate:latest
-# npx knex migrate:rollback
+## CLI KnexJs
+- npx knex migrate:make migration_name
+- npx knex migrate:latest
+- npx knex migrate:rollback
 
-# CLI Docker
-# docker-compose up
+## CLI Docker
+- docker-compose up
